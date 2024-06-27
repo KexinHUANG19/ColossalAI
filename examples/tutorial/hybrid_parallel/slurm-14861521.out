@@ -1,0 +1,48 @@
+Master address: 10.140.0.224
+Master port: 20033
+/mnt/petrelfs/huangkexin.d/anaconda3/envs/collie/lib/python3.10/site-packages/transformers/utils/generic.py:441: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  _torch_pytree._register_pytree_node(
+/mnt/petrelfs/huangkexin.d/anaconda3/envs/collie/lib/python3.10/site-packages/colossalai/pipeline/schedule/_utils.py:19: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  _register_pytree_node(OrderedDict, _odict_flatten, _odict_unflatten)
+/mnt/petrelfs/huangkexin.d/anaconda3/envs/collie/lib/python3.10/site-packages/torch/utils/_pytree.py:254: UserWarning: <class 'collections.OrderedDict'> is already registered as pytree node. Overwriting the previous registration.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/mnt/petrelfs/huangkexin.d/ColossalAI/examples/tutorial/hybrid_parallel/train.py", line 160, in <module>
+    main()
+  File "/mnt/petrelfs/huangkexin.d/ColossalAI/examples/tutorial/hybrid_parallel/train.py", line 57, in main
+    colossalai.launch_from_slurm(
+  File "/mnt/petrelfs/huangkexin.d/anaconda3/envs/collie/lib/python3.10/site-packages/colossalai/initialize.py", line 92, in launch_from_slurm
+    launch(
+  File "/mnt/petrelfs/huangkexin.d/anaconda3/envs/collie/lib/python3.10/site-packages/colossalai/initialize.py", line 48, in launch
+    if ":" in host:  # IPv6
+TypeError: argument of type 'NoneType' is not iterable
+[2024-06-19 14:48:28,143] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 366947) of binary: /mnt/petrelfs/huangkexin.d/anaconda3/envs/collie/bin/python
+Traceback (most recent call last):
+  File "/mnt/petrelfs/huangkexin.d/anaconda3/envs/collie/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==2.2.2', 'console_scripts', 'torchrun')())
+  File "/mnt/petrelfs/huangkexin.d/anaconda3/envs/collie/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 347, in wrapper
+    return f(*args, **kwargs)
+  File "/mnt/petrelfs/huangkexin.d/anaconda3/envs/collie/lib/python3.10/site-packages/torch/distributed/run.py", line 812, in main
+    run(args)
+  File "/mnt/petrelfs/huangkexin.d/anaconda3/envs/collie/lib/python3.10/site-packages/torch/distributed/run.py", line 803, in run
+    elastic_launch(
+  File "/mnt/petrelfs/huangkexin.d/anaconda3/envs/collie/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 135, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/mnt/petrelfs/huangkexin.d/anaconda3/envs/collie/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 268, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-06-19_14:48:28
+  host      : SH-IDC1-10-140-0-224
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 366947)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
